@@ -3,6 +3,11 @@ kind: Deployment
 metadata:
   name: billing
 spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   replicas: 3
   revisionHistoryLimit: 3
   selector:
